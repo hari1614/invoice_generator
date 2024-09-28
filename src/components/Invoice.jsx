@@ -34,28 +34,32 @@ const Invoice = ({ formData }) => {
         <div>
             <div ref={invoiceRef} id="invoice" className="p-6 bg-white border mt-8">
                 <div className='text-end text-gray-600'>
-                    <h1 className="lg:text-2xl text-lg font-semibold text-black">{formData.businessName || 'Software Developer'}</h1>
-                    <p className='text-sm lg:text-lg'>{formData.address || 'Rock beach pondicherry'}</p>
-                    <p className='text-sm lg:text-lg'>{formData.phone || '+91 8825842628'}</p>
+                    <h1 className="lg:text-2xl text-sm font-semibold text-black">{formData.businessName || 'Software Developer'}</h1>
+                    <p className='text-xs lg:text-sm'>{formData.address || 'Rock beach pondicherry'}</p>
+                    <p className='text-xs lg:text-sm'>{formData.phone || '+91 8825842628'}</p>
                 </div>
 
                 <hr className="my-4" />
                 <div className='flex justify-between'>
                     <div className="mb-4 text-gray-600">
                         <p><strong>Invoice issued for:</strong></p>
-                        <p className='lg:text-2xl text-lg  font-semibold text-black'>{formData.clientName || 'Jack Sparrow'}</p>
-                        <p className='text-sm lg:text-lg '>{formData.clientAddress || '26985 Brighton Lane,Lake Forest, CA 92630'}</p>
-                        <p className='text-sm lg:text-lg'>{formData.clientEmail || 'Jack@gmail.com'}</p>
+                        <p className='lg:text-2xl text-sm font-semibold text-black'>{formData.clientName || 'Jack Sparrow'}</p>
+                        <p className='text-xs lg:text-sm '>{formData.clientAddress || '26985 Brighton Lane,Lake Forest, CA 92630'}</p>
+                        <p className='text-xs lg:text-sm'>{formData.clientEmail || 'Jack@gmail.com'}</p>
                     </div>
 
                     <div className="mb-4 text-gray-600">
-                        <strong className='lg:text-2xl text-lg font-semibold text-black'>Invoice #: {formData.invoiceNumber || '8F7 S887-001'}</strong>
-                        <p className='text-sm lg:text-lg'>Payment Date: {formData.paymentDate || '28-12-2024'}</p>
-                        <p className='text-sm lg:text-lg'>Invoice Date: {formData.invoiceDate || '26-03-2024'}</p>
+                        <strong className='lg:text-2xl text-sm font-semibold text-black te'>Invoice #:
+                            <span className='text-sea'>
+                                {formData.invoiceNumber || '8F7 S887-001'}
+                            </span>
+                        </strong>
+                        <p className='text-xs lg:text-sm'>Payment Date: {formData.paymentDate || '28-12-2024'}</p>
+                        <p className='text-xs lg:text-sm'>Invoice Date: {formData.invoiceDate || '26-03-2024'}</p>
                     </div>
                 </div>
                 <div className='overflow-x-auto'>
-                    <table className="table-auto w-full border-collapse border">
+                    <table className="table-auto w-full border-collapse border text-xs lg:text-sm">
                         <thead>
                             <tr>
                                 <th className="border px-4 py-2">#</th>
@@ -85,15 +89,15 @@ const Invoice = ({ formData }) => {
                     </table>
                 </div>
 
-                <div className="lg:text-lg text-sm text-right mt-6">
+                <div className="lg:text-lg font-semibold text-sm text-right mt-6 text-gray-600">
                     <p>Subtotal: {subtotal.toFixed(2)} ALL</p>
                     <p>VAT (20%): {tax.toFixed(2)} ALL</p>
-                    <p><strong>Total: {grandTotal.toFixed(2)} ALL</strong></p>
+                    <p><strong className='text-green-800'>Grand Total: {grandTotal.toFixed(2)} ALL</strong></p>
                 </div>
 
                 <div>
-                    <h2 className='text-xl'>Invoice Note</h2>
-                    <h3 className='text-sm font-semibold text-gray-600 w-full lg:w-[70%]'>{formData.invoiceNote || '"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish.'}</h3>
+                    <h2 className='text-sm lg:text-xl mb-2'>Invoice Note</h2>
+                    <h3 className='text-xs lg:text-sm font-semibold text-gray-600 w-full lg:w-[70%]'>{formData.invoiceNote || '"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish.'}</h3>
                 </div>
 
                 <footer className='mt-4'>
@@ -103,7 +107,7 @@ const Invoice = ({ formData }) => {
                     </div>
 
                     <div>
-                        <p className='text-center text-semibold text-gray-600'>This invoice is created on computer and is valid without the signature and stamp.</p>
+                        <p className='text-xs lg:text-sm text-center text-semibold text-gray-600'>This invoice is created on computer and is valid without the signature and stamp.</p>
                     </div>
 
                 </footer>

@@ -18,7 +18,7 @@ const FormTable = ({ formData }) => {
                 />
             </label>
 
-            <table className="table-auto w-full border-collapse border">
+            <table className="table-auto w-full border-collapse border text-xs lg:text-sm">
                 <thead>
                     <tr>
                         <th className="border px-4 py-2">Invoice Number</th>

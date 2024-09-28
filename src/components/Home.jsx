@@ -45,17 +45,17 @@ const Home = () => {
         <div>
             <div className="main">
                 <header className="App-header">
-                    <h1 className='text-center text-3xl font-suse font-bold p-6 m-6'>
+                    <h1 className='text-center text-xl lg:text-3xl font-bold p-6 m-6'>
                         Invoice Generator
                     </h1>
                 </header>
-                <section className="flex flex-col items-center justify-center gap-8 h-[50vh]">
-                    <h1 className="text-center text-2xl font-extrabold">
+                <section className="flex flex-col items-center justify-center gap-8 h-auto lg:h-[50vh]">
+                    <h1 className="text-center text-xl lg:text-2xl font-extrabold">
                         Welcome to the Invoice Generator !
                     </h1>
                     <button
                         onClick={handleOpenForm}
-                        className="flex gap-4 text-white text-2xl font-extrabold px-12 py-4 rounded-xl bg-sea hover:bg-hover1"
+                        className="flex gap-4 text-white text-xl lg:text-2xl font-bold lg:font-extrabold px-6 lg:px-12 py-2 lg:py-4 rounded-xl bg-sea hover:bg-hover1"
                     >
                         Create an Invoice <Plus size={32} weight="bold" />
                     </button>
