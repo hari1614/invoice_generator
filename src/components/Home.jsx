@@ -48,14 +48,14 @@ const Home = () => {
           </h1>
         </header>
         <section className="flex flex-col items-center justify-center gap-8 h-[50vh]">
-          <h1 className="text-center text-2xl">
+          <h1 className="text-center text-2xl font-extrabold">
             Welcome to the Invoice Generator !
           </h1>
           <button
             onClick={handleOpenForm}
-            className="flex gap-4 text-white text-2xl px-12 py-4 rounded-xl bg-sea hover:bg-hover1"
+            className="flex gap-4 text-white text-2xl font-extrabold px-12 py-4 rounded-xl bg-sea hover:bg-hover1"
           >
-            Create an Invoice <Plus size={32} />
+            Create an Invoice <Plus size={32} weight="bold" />
           </button>
         </section>
       </div>
