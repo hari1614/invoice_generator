@@ -32,59 +32,60 @@ const Invoice = ({ formData }) => {
 
     return (
         <div>
-            <div ref={invoiceRef}  id="invoice" className="p-6 bg-white border mt-8">
+            <div ref={invoiceRef} id="invoice" className="p-6 bg-white border mt-8">
                 <div className='text-end text-gray-600'>
-                    <h1 className="text-2xl font-semibold text-black">{formData.businessName || 'Software Developer'}</h1>
-                    <p>{formData.address || 'Rock beach pondicherry'}</p>
-                    <p>{formData.phone || '+91 8825842628'}</p>
+                    <h1 className="lg:text-2xl text-lg font-semibold text-black">{formData.businessName || 'Software Developer'}</h1>
+                    <p className='text-sm lg:text-lg'>{formData.address || 'Rock beach pondicherry'}</p>
+                    <p className='text-sm lg:text-lg'>{formData.phone || '+91 8825842628'}</p>
                 </div>
 
                 <hr className="my-4" />
                 <div className='flex justify-between'>
                     <div className="mb-4 text-gray-600">
                         <p><strong>Invoice issued for:</strong></p>
-                        <p className='text-2xl font-semibold text-black'>{formData.clientName || 'Jack Sparrow'}</p>
-                        <p>{formData.clientAddress || '26985 Brighton Lane,Lake Forest, CA 92630'}</p>
-                        <p>{formData.clientEmail || 'Jack@gmail.com'}</p>
+                        <p className='lg:text-2xl text-lg  font-semibold text-black'>{formData.clientName || 'Jack Sparrow'}</p>
+                        <p className='text-sm lg:text-lg '>{formData.clientAddress || '26985 Brighton Lane,Lake Forest, CA 92630'}</p>
+                        <p className='text-sm lg:text-lg'>{formData.clientEmail || 'Jack@gmail.com'}</p>
                     </div>
 
-                    <div className="mb-4 text=gray-600">
-                        <strong className='text-2xl font-semibold text-black'>Invoice #: {formData.invoiceNumber || '8F7 S887-001'}</strong>
-                        <p>Payment Date: {formData.paymentDate || '28-12-2024'}</p>
-                        <p>Invoice Date: {formData.invoiceDate || '26-03-2024'}</p>
+                    <div className="mb-4 text-gray-600">
+                        <strong className='lg:text-2xl text-lg font-semibold text-black'>Invoice #: {formData.invoiceNumber || '8F7 S887-001'}</strong>
+                        <p className='text-sm lg:text-lg'>Payment Date: {formData.paymentDate || '28-12-2024'}</p>
+                        <p className='text-sm lg:text-lg'>Invoice Date: {formData.invoiceDate || '26-03-2024'}</p>
                     </div>
                 </div>
-
-                <table className="table-auto w-full border-collapse border">
-                    <thead>
-                        <tr>
-                            <th className="border px-4 py-2">#</th>
-                            <th className="border px-4 py-2">Title</th>
-                            <th className="border px-4 py-2">Description</th>
-                            <th className="border px-4 py-2">Price</th>
-                            <th className="border px-4 py-2">Quantity</th>
-                            <th className="border px-4 py-2">Unit</th>
-                            <th className="border px-4 py-2">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody className='text-center'>
-                        {formData.items.map((item, index) => (
-                            <tr key={index}>
-                                <td className="border px-4 py-2">{index + 1}</td>
-                                <td className="border px-4 py-2">{item.title || 'N/A'}</td>
-                                <td className="border px-4 py-2">{item.description || 'N/A'}</td>
-                                <td className="border px-4 py-2">{item.price || '0.00'}</td>
-                                <td className="border px-4 py-2">{item.quantity || '1'}</td>
-                                <td className="border px-4 py-2">{item.unit || 'N/A'}</td>
-                                <td className="border px-4 py-2">
-                                    {(item.price * item.quantity).toFixed(2) || '0.00'}
-                                </td>
+                <div className='overflow-x-auto'>
+                    <table className="table-auto w-full border-collapse border">
+                        <thead>
+                            <tr>
+                                <th className="border px-4 py-2">#</th>
+                                <th className="border px-4 py-2">Title</th>
+                                <th className="border px-4 py-2">Description</th>
+                                <th className="border px-4 py-2">Price</th>
+                                <th className="border px-4 py-2">Quantity</th>
+                                <th className="border px-4 py-2">Unit</th>
+                                <th className="border px-4 py-2">Total</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className='text-center'>
+                            {formData.items.map((item, index) => (
+                                <tr key={index}>
+                                    <td className="border px-4 py-2">{index + 1}</td>
+                                    <td className="border px-4 py-2">{item.title || 'N/A'}</td>
+                                    <td className="border px-4 py-2">{item.description || 'N/A'}</td>
+                                    <td className="border px-4 py-2">{item.price || '0.00'}</td>
+                                    <td className="border px-4 py-2">{item.quantity || '1'}</td>
+                                    <td className="border px-4 py-2">{item.unit || 'N/A'}</td>
+                                    <td className="border px-4 py-2">
+                                        {(item.price * item.quantity).toFixed(2) || '0.00'}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-                <div className="text-right mt-6">
+                <div className="lg:text-lg text-sm text-right mt-6">
                     <p>Subtotal: {subtotal.toFixed(2)} ALL</p>
                     <p>VAT (20%): {tax.toFixed(2)} ALL</p>
                     <p><strong>Total: {grandTotal.toFixed(2)} ALL</strong></p>
@@ -92,12 +93,12 @@ const Invoice = ({ formData }) => {
 
                 <div>
                     <h2 className='text-xl'>Invoice Note</h2>
-                    <h3 className='text-sm font-semibold text-gray-600 w-[70%]'>{formData.invoiceNote || '"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish.'}</h3>
+                    <h3 className='text-sm font-semibold text-gray-600 w-full lg:w-[70%]'>{formData.invoiceNote || '"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish.'}</h3>
                 </div>
 
                 <footer className='mt-4'>
 
-                    <div className="mb-4">
+                    <div className="mb-4 flex lg:justify-start justify-center">
                         <QRCodeSVG value={formData.invoiceNumber || 'N/A'} size={60} />
                     </div>
 
@@ -109,10 +110,12 @@ const Invoice = ({ formData }) => {
 
 
             </div>
-            <button className="bg-sea hover:bg-hover1 text-white font-medium text-sm shadow-xl hover:shadow-lg py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center mt-4"
-                onClick={handlePrint}>
-                 <Printer size={24} className="mr-2" /> Print Invoice
-            </button>
+            <div className='flex lg:justify-start justify-center'>
+                <button className="bg-sea hover:bg-hover1 text-white font-medium text-sm shadow-xl hover:shadow-lg py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center mt-4"
+                    onClick={handlePrint}>
+                    <Printer size={24} className="mr-2" /> Print Invoice
+                </button>
+            </div>
         </div>
     );
 };
