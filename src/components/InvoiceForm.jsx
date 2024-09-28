@@ -45,7 +45,7 @@ const InvoiceForm = ({ onClose, onSubmit, invoiceNumber }) => {
 
     return (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white p-8 rounded-xl w-[35%] ">
+            <div className="bg-white p-6 md:p-8 rounded-lg w-full max-w-md mx-4">
 
                 <div className='flex justify-between'>
                     <h2 className="text-2xl font-bold mb-4">Create Invoice</h2>
